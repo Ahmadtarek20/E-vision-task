@@ -1,0 +1,38 @@
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="text-center">
+    <div class="card text-white bg-info mb-3" >
+      <div class="card-body">
+        <div class="card-title">
+          <div class="mb-2 size-2 text-gray">
+          <strong>
+            Name :
+          </strong>
+          {{ product?.name }}
+        </div>
+          <div class="mb-2 size-2 text-gray">
+            <strong>
+              Price :
+            </strong>
+            {{ product?.price }}
+            </div>
+            <div class="mb-2 size-2 text-gray">
+              <strong>
+                Created At :
+              </strong>
+              {{ product?.lastUpdated | date }}
+              </div>
+            <div class="mb-2 size-2 text-gray">
+              <strong>
+                Image :
+              </strong>
+              <img class="img-thumbnail per-image" src="https://localhost:44380/images/{{product?.photo}}" [class.display-none]="!product?.photo">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

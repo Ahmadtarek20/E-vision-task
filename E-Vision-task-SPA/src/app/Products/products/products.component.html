@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <a type="button" [routerLink]="['form']" class="btn btn-primary">Add Product</a>
+      <a type="button" class="btn btn-outline-dark" (click)="downloadFile()">Download File</a>
+      <div class="search-hero">
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText">
+      </div>
+		<table class="table table-image">
+		  <thead>
+		    <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Created At</th>
+          <th scope="col">Photo</th>
+          <th>Actions</th>
+		    </tr>
+		  </thead>
+		  <tbody  *ngFor="let product of Product | filter:searchText">
+		    <tr>
+		      <th scope="row">{{product?.id}}</th>
+		      <td class="w-25">
+			      <img src="https://localhost:44380/images/{{product?.photo}}" class="img-fluid img-thumbnail" alt="Product">
+		      </td>
+          <td>{{product?.name}}</td>
+          <td>{{product?.price}}</td>
+          <td>{{product?.lastUpdated | date}}</td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="open(mymodal)">Delete</button>
+            <ng-template #mymodal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Do you want to delete Product number</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               {{product?.id}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Cancel</button>
+
+                <button type="button" class="btn btn-outline-dark"(click)="deleteProduct(product.id,modal.close('Save click'))">Ok</button>
+              </div>
+            </ng-template>
+            <a type="button" class="btn btn-warning" [routerLink]="['form/', product.id]">Update</a>
+            <a type="button" class="btn btn-outline-primary but-per"[routerLink]="['details', product.id]">Details</a>
+
+          </td>
+		    </tr>
+		  </tbody>
+    </table>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>E_vision_task_Repositories</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-vision-task-DataModel\E-vision-task-DataModel.csproj" />
+    <ProjectReference Include="..\E-vision-task.Domain\E-vision-task.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

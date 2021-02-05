@@ -1,0 +1,48 @@
+<br>
+<br>
+<div class="container">
+  <div class="card text-center">
+
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="row mb-4">
+        <div class="col-md-12 mt-4">
+          <label>
+            Name:
+            <input class="m-control" class="form-control"  placeholder="Enter Name "  type="text" formControlName="name"
+            [ngClass]="{'is-invalid': !productForm.get('name').valid && submited }" >
+          </label>
+             <span *ngIf="productForm.get('name').errors?.required && submited">
+              Please enter Name.
+            </span>
+        </div>
+         <div class="col-md-12 mt-4">
+          <label>
+            Price:
+            <input class="m-control" class="form-control"placeholder="Enter Price "  type="number" formControlName="price"
+            [ngClass]="{'is-invalid': !productForm.get('price').valid && submited }" >
+          </label>
+          <span *ngIf="productForm.get('price').errors?.required && submited">
+              Please enter Price.
+            </span>
+        </div>
+        <div class="col-md-12 mt-4">
+          <label>
+            image:
+            <img class="img-thumbnail per-image" *ngIf="id != null"  src="https://localhost:44380/images/{{product?.photo}}" [class.display-none]="!product?.photo">
+             <br>
+            <input class="m-control" accept=".png, .jpg, .jpeg, .gif" (change)="OnFileSelected($event)" type="file"formControlName="photoPath"
+            [ngClass]="{'is-invalid': !productForm.get('photoPath').valid && submited }" >
+          </label>
+          <span *ngIf="productForm.get('photoPath').errors?.required && submited">
+              Please enter imageurl.
+            </span>
+        </div>
+      </div>
+
+      <div class="card-footer text-muted">
+       <button class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</div>
