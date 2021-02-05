@@ -1,6 +1,6 @@
 #  How to work ?
 Asp.net core  ==> runtime 
-SQL Server  from database to connection data
-run the coomand database name is EVisionTask
-uppdat database 
-
+Microsoft SQL Server  instace 
+Need to be changed  ConnectionStrings in app seting to your SQL Server  instace 
+run the coomand uppdat database  in project E-vision-task
+and run Appliciton
